@@ -71,8 +71,8 @@ struct RegistrationView: View {
             dismiss()
         } label: {
             HStack(spacing: 3) {
-                Text("Don't have an account?")
-                Text("Sign up")
+                Text("Already have an account?")
+                Text("Sign in")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
             }
