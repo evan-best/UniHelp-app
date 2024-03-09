@@ -8,25 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
+    
     var body: some View {
-        var count = 0;
-        
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue,.white]), 
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            
-            Button {
-                count += 1
-                print(count)
+        Group {
+            if $viewModel.userSession != nil {
+                ProfileView()
+            } else {
+                LoginView()
             }
-        label: {
-            Text("Button")
-                    .padding(10)
-            }
-            .buttonStyle(.borderedProminent)
-            
         }
     }
 }
