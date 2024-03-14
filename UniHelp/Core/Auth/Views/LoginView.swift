@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var navigateToProfile = false
     
     var body: some View {
         NavigationView {
@@ -55,9 +58,45 @@ struct LoginView: View {
                 .opacity(formIsValid ? 1.0 : 0.5)
                 .cornerRadius(10)
                 .padding(.top, 24)
+                
+                // Divider and OR Text
+                HStack {
+                    VStack { Divider () }
+                    
+                    Text("OR")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                    VStack { Divider() }
+                }
+                .padding(.vertical, 8)
 
+
+                // Google Sign in
+                
+                Button {
+                    Task {
+                        do {
+                            try await viewModel.signInGoogle()
+                            navigateToProfile = true
+                        } catch {
+                            
+                            print("DEBUG: Failed to sign in with Google with error \(error.localizedDescription)")
+                        }
+                    }
+                } label: {
+                    Text("Continue with Google")
+                        .foregroundStyle(Color(.black))
+                        .frame(width: UIScreen.main.bounds.width - 62, height:32)
+                        .background(alignment: .leading) {
+                            Image("Google")
+                                .resizable()
+                                .frame(width: 32, alignment: .center)
+                        }
+                }
+                .buttonStyle(.bordered)
+                
                 Spacer()
-
+                
                 // Sign up button
                 NavigationLink(
                     destination: RegistrationView()
@@ -71,6 +110,11 @@ struct LoginView: View {
                     .font(.system(size: 14))
                 }
             }
+            .background(
+                // Navigate to profile view when navigateToProfile is true
+                NavigationLink(destination: ProfileView(), isActive: $navigateToProfile) {
+                    EmptyView()
+                })
         }
     }
 }

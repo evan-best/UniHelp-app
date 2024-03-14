@@ -8,6 +8,8 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import GoogleSignIn
+import GoogleSignInSwift
 
 protocol AuthenticationFormProtocol {
     var formIsValid : Bool { get }
@@ -68,19 +70,71 @@ class AuthViewModel: ObservableObject {
                     print("DEBUG: Failed to delete user with error \(error.localizedDescription)")
                 } else {
                     Firestore.firestore().collection("users").document(uid).delete()
-                    print("DEBUG: Account \(self.currentUser) deleted.")
                     self.currentUser = nil
                 }
             }
         }
     }
     
+
     func fetchUser() async {
+        guard let user = Auth.auth().currentUser else { return }
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
-        self.currentUser = try? snapshot.data(as: User.self)
-        
-        print("DEBUG: Current user is \(self.currentUser)")
+        if uid == user.uid {
+            // Check if the user signed in with Google
+            if let providerData = user.providerData.first(where: { $0.providerID == GoogleAuthProviderID }) {
+                // User signed in with Google, update currentUser directly
+                self.currentUser = User(id: uid, fullname: providerData.displayName ?? "", email: providerData.email ?? "")
+            } else {
+                // User signed in with email and password, fetch user data from Firestore
+                guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
+                self.currentUser = try? snapshot.data(as: User.self)
+            }
+        }
     }
+
+    
+    func signInGoogle() async throws {
+        
+        guard let topVC = Utilites.shared.topViewController() else {
+            throw URLError(.cannotFindHost)
+        }
+        
+        // Call the signIn method of GIDSignIn.sharedInstance and await the result
+        let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
+        
+        // Retrieve the Google user's ID token and access token
+        guard let idToken = gidSignInResult.user.idToken?.tokenString else {
+            throw URLError(.badServerResponse)
+        }
+        let accessToken = gidSignInResult.user.accessToken.tokenString
+        
+        // Create an AuthCredential using the retrieved tokens
+        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        
+        // Sign in with Firebase using the AuthCredential
+        do {
+            let result = try await Auth.auth().signIn(with: credential)
+            // Handle successful sign-in
+            self.userSession = result.user
+            
+            // Fetch user data
+            await fetchUser()
+            
+            // Check if user exists in Firestore, if not, create user
+            if currentUser == nil {
+                let displayName = result.user.displayName ?? ""
+                let email = result.user.email ?? ""
+                try await createUser(withEmail: email, password: "", fullname: displayName)
+            }
+        } catch {
+            // Handle sign-in failure
+            print("DEBUG: Failed to sign in with Google with error \(error.localizedDescription)")
+            throw error
+        }
+    }
+
+
+    
 }
