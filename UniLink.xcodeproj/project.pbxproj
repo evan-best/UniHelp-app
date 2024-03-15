@@ -56,13 +56,13 @@
 		2480E3192BA2808500B82D35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2480E31B2BA280F200B82D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2480E31D2BA287B800B82D35 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
-		24B62D632B980D3B0026FDB5 /* UniHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B62D632B980D3B0026FDB5 /* UniLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B62D662B980D3B0026FDB5 /* UniHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniHelpApp.swift; sourceTree = "<group>"; };
 		24B62D682B980D3B0026FDB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		24B62D732B980D3D0026FDB5 /* UniHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		24B62D7D2B980D3D0026FDB5 /* UniHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B62D732B980D3D0026FDB5 /* UniLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B62D7D2B980D3D0026FDB5 /* UniLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,9 +193,9 @@
 		24B62D642B980D3B0026FDB5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24B62D632B980D3B0026FDB5 /* UniHelp.app */,
-				24B62D732B980D3D0026FDB5 /* UniHelpTests.xctest */,
-				24B62D7D2B980D3D0026FDB5 /* UniHelpUITests.xctest */,
+				24B62D632B980D3B0026FDB5 /* UniLink.app */,
+				24B62D732B980D3D0026FDB5 /* UniLinkTests.xctest */,
+				24B62D7D2B980D3D0026FDB5 /* UniLinkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24B62D622B980D3B0026FDB5 /* UniHelp */ = {
+		24B62D622B980D3B0026FDB5 /* UniLink */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24B62D872B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniHelp" */;
+			buildConfigurationList = 24B62D872B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniLink" */;
 			buildPhases = (
 				24B62D5F2B980D3B0026FDB5 /* Sources */,
 				24B62D602B980D3B0026FDB5 /* Frameworks */,
@@ -238,7 +238,7 @@
 			);
 			dependencies = (
 			);
-			name = UniHelp;
+			name = UniLink;
 			packageProductDependencies = (
 				24572D712B9C3ECF00BADCBE /* FirebaseAuth */,
 				24572D732B9C3ECF00BADCBE /* FirebaseFirestore */,
@@ -248,12 +248,12 @@
 				2480E3132BA27C5500B82D35 /* GoogleSignInSwift */,
 			);
 			productName = UniHelp;
-			productReference = 24B62D632B980D3B0026FDB5 /* UniHelp.app */;
+			productReference = 24B62D632B980D3B0026FDB5 /* UniLink.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24B62D722B980D3D0026FDB5 /* UniHelpTests */ = {
+		24B62D722B980D3D0026FDB5 /* UniLinkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24B62D8A2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniHelpTests" */;
+			buildConfigurationList = 24B62D8A2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniLinkTests" */;
 			buildPhases = (
 				24B62D6F2B980D3D0026FDB5 /* Sources */,
 				24B62D702B980D3D0026FDB5 /* Frameworks */,
@@ -264,14 +264,14 @@
 			dependencies = (
 				24B62D752B980D3D0026FDB5 /* PBXTargetDependency */,
 			);
-			name = UniHelpTests;
+			name = UniLinkTests;
 			productName = UniHelpTests;
-			productReference = 24B62D732B980D3D0026FDB5 /* UniHelpTests.xctest */;
+			productReference = 24B62D732B980D3D0026FDB5 /* UniLinkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24B62D7C2B980D3D0026FDB5 /* UniHelpUITests */ = {
+		24B62D7C2B980D3D0026FDB5 /* UniLinkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24B62D8D2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniHelpUITests" */;
+			buildConfigurationList = 24B62D8D2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniLinkUITests" */;
 			buildPhases = (
 				24B62D792B980D3D0026FDB5 /* Sources */,
 				24B62D7A2B980D3D0026FDB5 /* Frameworks */,
@@ -282,9 +282,9 @@
 			dependencies = (
 				24B62D7F2B980D3D0026FDB5 /* PBXTargetDependency */,
 			);
-			name = UniHelpUITests;
+			name = UniLinkUITests;
 			productName = UniHelpUITests;
-			productReference = 24B62D7D2B980D3D0026FDB5 /* UniHelpUITests.xctest */;
+			productReference = 24B62D7D2B980D3D0026FDB5 /* UniLinkUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -310,7 +310,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24B62D5E2B980D3B0026FDB5 /* Build configuration list for PBXProject "UniHelp" */;
+			buildConfigurationList = 24B62D5E2B980D3B0026FDB5 /* Build configuration list for PBXProject "UniLink" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -327,9 +327,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24B62D622B980D3B0026FDB5 /* UniHelp */,
-				24B62D722B980D3D0026FDB5 /* UniHelpTests */,
-				24B62D7C2B980D3D0026FDB5 /* UniHelpUITests */,
+				24B62D622B980D3B0026FDB5 /* UniLink */,
+				24B62D722B980D3D0026FDB5 /* UniLinkTests */,
+				24B62D7C2B980D3D0026FDB5 /* UniLinkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -398,12 +398,12 @@
 /* Begin PBXTargetDependency section */
 		24B62D752B980D3D0026FDB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24B62D622B980D3B0026FDB5 /* UniHelp */;
+			target = 24B62D622B980D3B0026FDB5 /* UniLink */;
 			targetProxy = 24B62D742B980D3D0026FDB5 /* PBXContainerItemProxy */;
 		};
 		24B62D7F2B980D3D0026FDB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24B62D622B980D3B0026FDB5 /* UniHelp */;
+			target = 24B62D622B980D3B0026FDB5 /* UniLink */;
 			targetProxy = 24B62D7E2B980D3D0026FDB5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -606,7 +606,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniHelp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UniHelp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniLink.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UniLink";
 			};
 			name = Debug;
 		};
@@ -626,7 +626,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniHelp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UniHelp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniLink.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UniLink";
 			};
 			name = Release;
 		};
@@ -669,7 +669,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24B62D5E2B980D3B0026FDB5 /* Build configuration list for PBXProject "UniHelp" */ = {
+		24B62D5E2B980D3B0026FDB5 /* Build configuration list for PBXProject "UniLink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24B62D852B980D3D0026FDB5 /* Debug */,
@@ -678,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24B62D872B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniHelp" */ = {
+		24B62D872B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniLink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24B62D882B980D3D0026FDB5 /* Debug */,
@@ -687,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24B62D8A2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniHelpTests" */ = {
+		24B62D8A2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniLinkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24B62D8B2B980D3D0026FDB5 /* Debug */,
@@ -696,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24B62D8D2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniHelpUITests" */ = {
+		24B62D8D2B980D3D0026FDB5 /* Build configuration list for PBXNativeTarget "UniLinkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24B62D8E2B980D3D0026FDB5 /* Debug */,

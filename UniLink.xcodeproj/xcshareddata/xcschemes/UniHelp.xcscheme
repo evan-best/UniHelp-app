@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24B62D622B980D3B0026FDB5"
-               BuildableName = "UniHelp.app"
-               BlueprintName = "UniHelp"
-               ReferencedContainer = "container:UniHelp.xcodeproj">
+               BuildableName = "UniLink.app"
+               BlueprintName = "UniLink"
+               ReferencedContainer = "container:UniLink.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24B62D722B980D3D0026FDB5"
-               BuildableName = "UniHelpTests.xctest"
-               BlueprintName = "UniHelpTests"
-               ReferencedContainer = "container:UniHelp.xcodeproj">
+               BuildableName = "UniLinkTests.xctest"
+               BlueprintName = "UniLinkTests"
+               ReferencedContainer = "container:UniLink.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,9 +46,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24B62D7C2B980D3D0026FDB5"
-               BuildableName = "UniHelpUITests.xctest"
-               BlueprintName = "UniHelpUITests"
-               ReferencedContainer = "container:UniHelp.xcodeproj">
+               BuildableName = "UniLinkUITests.xctest"
+               BlueprintName = "UniLinkUITests"
+               ReferencedContainer = "container:UniLink.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24B62D622B980D3B0026FDB5"
-            BuildableName = "UniHelp.app"
-            BlueprintName = "UniHelp"
-            ReferencedContainer = "container:UniHelp.xcodeproj">
+            BuildableName = "UniLink.app"
+            BlueprintName = "UniLink"
+            ReferencedContainer = "container:UniLink.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24B62D622B980D3B0026FDB5"
-            BuildableName = "UniHelp.app"
-            BlueprintName = "UniHelp"
-            ReferencedContainer = "container:UniHelp.xcodeproj">
+            BuildableName = "UniLink.app"
+            BlueprintName = "UniLink"
+            ReferencedContainer = "container:UniLink.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
