@@ -185,7 +185,7 @@
 		24B62D5A2B980D3B0026FDB5 = {
 			isa = PBXGroup;
 			children = (
-				24B62D652B980D3B0026FDB5 /* UniHelp */,
+				24B62D652B980D3B0026FDB5 /* UniLink */,
 				24B62D642B980D3B0026FDB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24B62D652B980D3B0026FDB5 /* UniHelp */ = {
+		24B62D652B980D3B0026FDB5 /* UniLink */ = {
 			isa = PBXGroup;
 			children = (
 				2480E31B2BA280F200B82D35 /* Info.plist */,
@@ -212,7 +212,7 @@
 				2480E3192BA2808500B82D35 /* GoogleService-Info.plist */,
 				24B62D6C2B980D3D0026FDB5 /* Preview Content */,
 			);
-			path = UniHelp;
+			path = UniLink;
 			sourceTree = "<group>";
 		};
 		24B62D6C2B980D3D0026FDB5 /* Preview Content */ = {
