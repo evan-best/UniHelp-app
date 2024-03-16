@@ -1,6 +1,6 @@
 //
 //  LoginView.swift
-//  UniHelp
+//  UniLink
 //
 //  Created by Evan Best on 2024-03-09.
 //

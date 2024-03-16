@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 import GoogleSignIn
 import GoogleSignInSwift
 
+
 protocol AuthenticationFormProtocol {
     var formIsValid : Bool { get }
 }

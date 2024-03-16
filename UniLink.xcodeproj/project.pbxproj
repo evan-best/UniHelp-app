@@ -26,6 +26,16 @@
 		24B62D692B980D3B0026FDB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62D682B980D3B0026FDB5 /* ContentView.swift */; };
 		24B62D6B2B980D3D0026FDB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */; };
 		24B62D6E2B980D3D0026FDB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */; };
+		24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFE2E2BA60540001F3386 /* HomeView.swift */; };
+		24DDFE322BA6072C001F3386 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 24DDFE312BA6072C001F3386 /* RiveRuntime */; };
+		24DDFE342BA60761001F3386 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFE332BA60761001F3386 /* TabView.swift */; };
+		24E5285B2BA60D5D0036311A /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528542BA60D5D0036311A /* house.riv */; };
+		24E5285C2BA60D5D0036311A /* confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528552BA60D5D0036311A /* confetti.riv */; };
+		24E5285D2BA60D5D0036311A /* check.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528562BA60D5D0036311A /* check.riv */; };
+		24E5285E2BA60D5D0036311A /* menu_button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528572BA60D5D0036311A /* menu_button.riv */; };
+		24E5285F2BA60D5D0036311A /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528582BA60D5D0036311A /* shapes.riv */; };
+		24E528602BA60D5D0036311A /* button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528592BA60D5D0036311A /* button.riv */; };
+		24E528632BA60F9A0036311A /* icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528622BA60F9A0036311A /* icons.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +73,15 @@
 		24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		24B62D732B980D3D0026FDB5 /* UniLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B62D7D2B980D3D0026FDB5 /* UniLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24DDFE2E2BA60540001F3386 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		24DDFE332BA60761001F3386 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		24E528542BA60D5D0036311A /* house.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = house.riv; sourceTree = "<group>"; };
+		24E528552BA60D5D0036311A /* confetti.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = confetti.riv; sourceTree = "<group>"; };
+		24E528562BA60D5D0036311A /* check.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = check.riv; sourceTree = "<group>"; };
+		24E528572BA60D5D0036311A /* menu_button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu_button.riv; sourceTree = "<group>"; };
+		24E528582BA60D5D0036311A /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
+		24E528592BA60D5D0036311A /* button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.riv; sourceTree = "<group>"; };
+		24E528622BA60F9A0036311A /* icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; name = icons.riv; path = ../../../../../Documents/icons.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +91,7 @@
 			files = (
 				2480E3122BA27C5500B82D35 /* GoogleSignIn in Frameworks */,
 				24572D722B9C3ECF00BADCBE /* FirebaseAuth in Frameworks */,
+				24DDFE322BA6072C001F3386 /* RiveRuntime in Frameworks */,
 				24572D782B9C3ECF00BADCBE /* FirebaseStorage in Frameworks */,
 				2480E3142BA27C5500B82D35 /* GoogleSignInSwift in Frameworks */,
 				24572D742B9C3ECF00BADCBE /* FirebaseFirestore in Frameworks */,
@@ -109,6 +129,7 @@
 			children = (
 				24572D5D2B9C208100BADCBE /* InputView.swift */,
 				24572D6A2B9C3A2E00BADCBE /* SettingsRowView.swift */,
+				24DDFE332BA60761001F3386 /* TabView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -162,6 +183,7 @@
 			children = (
 				24572D642B9C228D00BADCBE /* LoginView.swift */,
 				24572D662B9C284E00BADCBE /* RegistrationView.swift */,
+				24DDFE2E2BA60540001F3386 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +230,7 @@
 				24572D5A2B9C1DE600BADCBE /* Components */,
 				24572D5F2B9C221200BADCBE /* Core */,
 				24572D632B9C226C00BADCBE /* Model */,
+				24E528532BA60D5D0036311A /* RiveAssets */,
 				24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */,
 				2480E3192BA2808500B82D35 /* GoogleService-Info.plist */,
 				24B62D6C2B980D3D0026FDB5 /* Preview Content */,
@@ -221,6 +244,20 @@
 				24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		24E528532BA60D5D0036311A /* RiveAssets */ = {
+			isa = PBXGroup;
+			children = (
+				24E528542BA60D5D0036311A /* house.riv */,
+				24E528552BA60D5D0036311A /* confetti.riv */,
+				24E528562BA60D5D0036311A /* check.riv */,
+				24E528572BA60D5D0036311A /* menu_button.riv */,
+				24E528582BA60D5D0036311A /* shapes.riv */,
+				24E528592BA60D5D0036311A /* button.riv */,
+				24E528622BA60F9A0036311A /* icons.riv */,
+			);
+			path = RiveAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +283,7 @@
 				24572D772B9C3ECF00BADCBE /* FirebaseStorage */,
 				2480E3112BA27C5500B82D35 /* GoogleSignIn */,
 				2480E3132BA27C5500B82D35 /* GoogleSignInSwift */,
+				24DDFE312BA6072C001F3386 /* RiveRuntime */,
 			);
 			productName = UniHelp;
 			productReference = 24B62D632B980D3B0026FDB5 /* UniLink.app */;
@@ -322,6 +360,7 @@
 			packageReferences = (
 				24572D702B9C3ECF00BADCBE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2480E3102BA27C5500B82D35 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				24DDFE302BA6072C001F3386 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = 24B62D642B980D3B0026FDB5 /* Products */;
 			projectDirPath = "";
@@ -339,9 +378,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E5285D2BA60D5D0036311A /* check.riv in Resources */,
+				24E5285B2BA60D5D0036311A /* house.riv in Resources */,
 				24B62D6E2B980D3D0026FDB5 /* Preview Assets.xcassets in Resources */,
+				24E528602BA60D5D0036311A /* button.riv in Resources */,
 				24B62D6B2B980D3D0026FDB5 /* Assets.xcassets in Resources */,
 				2480E31A2BA2808500B82D35 /* GoogleService-Info.plist in Resources */,
+				24E5285F2BA60D5D0036311A /* shapes.riv in Resources */,
+				24E5285E2BA60D5D0036311A /* menu_button.riv in Resources */,
+				24E5285C2BA60D5D0036311A /* confetti.riv in Resources */,
+				24E528632BA60F9A0036311A /* icons.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,10 +417,12 @@
 				24B62D692B980D3B0026FDB5 /* ContentView.swift in Sources */,
 				24572D652B9C228D00BADCBE /* LoginView.swift in Sources */,
 				24B62D672B980D3B0026FDB5 /* UniHelpApp.swift in Sources */,
+				24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */,
 				24572D6D2B9C3C0800BADCBE /* User.swift in Sources */,
 				24572D692B9C386800BADCBE /* ProfileView.swift in Sources */,
 				24572D672B9C284E00BADCBE /* RegistrationView.swift in Sources */,
 				24572D6B2B9C3A2E00BADCBE /* SettingsRowView.swift in Sources */,
+				24DDFE342BA60761001F3386 /* TabView.swift in Sources */,
 				24572D7C2B9C3F2B00BADCBE /* AuthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,11 +583,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"UniHelp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "UniLink/Preview\\ Content";
 				DEVELOPMENT_TEAM = T5RS4V4R68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = UniHelp/Info.plist;
+				INFOPLIST_FILE = UniLink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -551,7 +599,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LIBTOOLFLAGS = "\"-WLinkingC true\" \"-XCExpApple true\" \"-XCBuildForPre true\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniHelp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniLink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -566,11 +614,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"UniHelp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "UniLink/Preview\\ Content";
 				DEVELOPMENT_TEAM = T5RS4V4R68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = UniHelp/Info.plist;
+				INFOPLIST_FILE = UniLink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -582,7 +630,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LIBTOOLFLAGS = "\"-WLinkingC true\" \"-XCExpApple true\" \"-XCBuildForPre true\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniHelp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniLink";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -601,7 +649,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniHelpTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniLinkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -621,7 +669,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniHelpTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Evan-Best.UniLinkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -724,6 +772,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		24DDFE302BA6072C001F3386 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -756,6 +812,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2480E3102BA27C5500B82D35 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		24DDFE312BA6072C001F3386 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24DDFE302BA6072C001F3386 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

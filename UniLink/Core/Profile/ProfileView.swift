@@ -17,7 +17,6 @@ struct ProfileView: View {
             List {
                 Section {
                     HStack {
-                        
                         Text(user.initials)
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .fontWeight(.semibold)
@@ -41,13 +40,10 @@ struct ProfileView: View {
                 
                 Section("General") {
                     HStack {
-                        
                         SettingsRowView(imageName: "gear",
                                         title: "Version",
                                         tintColor: Color(.systemGray))
-                        
                         Spacer()
-                        
                         Text("1.0.0")
                             .font(.subheadline)
                             .foregroundStyle(.gray)
