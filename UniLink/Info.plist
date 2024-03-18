@@ -17,5 +17,11 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>610396367902-u07r6qi931176fi6jt3osdhpdr6aogcn.apps.googleusercontent.com</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Inter-Regular.ttf</string>
+		<string>Inter-SemiBold.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

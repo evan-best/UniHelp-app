@@ -18,10 +18,10 @@ struct TabView: View {
                 tabContent
             }
             .padding(12)
-            .background(Color(.systemPurple).opacity(0.8))
+            .background(Color(.background).opacity(0.9))
             .background(.ultraThinMaterial)
             .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .shadow(color: Color(.systemPurple).opacity(0.3),
+            .shadow(color: Color(.systemGray).opacity(0.3),
                     radius: 20, x:0, y: 20 )
             .overlay(RoundedRectangle(cornerRadius: 24, style:.continuous)
                 .stroke(.linearGradient(colors: [.white.opacity(0.5), .white.opacity(0)], startPoint: .topLeading, endPoint: .bottomTrailing)))

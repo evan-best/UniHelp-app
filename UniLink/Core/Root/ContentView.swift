@@ -9,11 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @AppStorage("selectedTab") var selectedTab: Tab = .home
     
     var body: some View {
         Group {
             if viewModel.userSession != nil {
-                HomeView()
+                ZStack {
+                    switch selectedTab {
+                    case .chat:
+                        Text("Chat")
+                    case .search:
+                        Text("Search")
+                    case .home:
+                        HomeView()
+                    case .bell:
+                        Text("Notifications")
+                    case .user:
+                        ProfileView()
+                    }
+                    TabView()
+                }
+                    
             } else {
                 LoginView()
             }
