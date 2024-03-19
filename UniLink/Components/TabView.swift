@@ -18,7 +18,7 @@ struct TabView: View {
                 tabContent
             }
             .padding(12)
-            .background(Color(.background).opacity(0.9))
+            .background(Color(.systemPurple).opacity(0.9))
             .background(.ultraThinMaterial)
             .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
             .shadow(color: Color(.systemGray).opacity(0.3),

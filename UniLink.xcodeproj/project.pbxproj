@@ -19,16 +19,17 @@
 		24572D782B9C3ECF00BADCBE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 24572D772B9C3ECF00BADCBE /* FirebaseStorage */; };
 		24572D7C2B9C3F2B00BADCBE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24572D7B2B9C3F2B00BADCBE /* AuthViewModel.swift */; };
 		2467E3A72BA6293D003629D6 /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3A62BA6293D003629D6 /* StudySession.swift */; };
-		2467E3A92BA62ADE003629D6 /* VCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3A82BA62ADE003629D6 /* VCard.swift */; };
+		2467E3A92BA62ADE003629D6 /* VCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3A82BA62ADE003629D6 /* VCardView.swift */; };
 		2467E3AE2BA62D7A003629D6 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2467E3AB2BA62D7A003629D6 /* Inter-Regular.ttf */; };
 		2467E3AF2BA62D7A003629D6 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2467E3AC2BA62D7A003629D6 /* Poppins-Bold.ttf */; };
 		2467E3B02BA62D7A003629D6 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2467E3AD2BA62D7A003629D6 /* Inter-SemiBold.ttf */; };
 		2467E3B42BA630A0003629D6 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3B32BA630A0003629D6 /* CustomFont.swift */; };
-		2467E3B72BA63FE8003629D6 /* HCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3B62BA63FE8003629D6 /* HCard.swift */; };
+		2467E3B72BA63FE8003629D6 /* HCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3B62BA63FE8003629D6 /* HCardView.swift */; };
 		2480E3122BA27C5500B82D35 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 2480E3112BA27C5500B82D35 /* GoogleSignIn */; };
 		2480E3142BA27C5500B82D35 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2480E3132BA27C5500B82D35 /* GoogleSignInSwift */; };
 		2480E31A2BA2808500B82D35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2480E3192BA2808500B82D35 /* GoogleService-Info.plist */; };
 		2480E31E2BA287B800B82D35 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2480E31D2BA287B800B82D35 /* Utilites.swift */; };
+		24B4C4DB2BA8FF5F00BDD082 /* VCardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4C4DA2BA8FF5F00BDD082 /* VCardDetailsView.swift */; };
 		24B62D672B980D3B0026FDB5 /* UniHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62D662B980D3B0026FDB5 /* UniHelpApp.swift */; };
 		24B62D692B980D3B0026FDB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62D682B980D3B0026FDB5 /* ContentView.swift */; };
 		24B62D6B2B980D3D0026FDB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */; };
@@ -71,15 +72,16 @@
 		24572D6C2B9C3C0800BADCBE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		24572D7B2B9C3F2B00BADCBE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2467E3A62BA6293D003629D6 /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
-		2467E3A82BA62ADE003629D6 /* VCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCard.swift; sourceTree = "<group>"; };
+		2467E3A82BA62ADE003629D6 /* VCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCardView.swift; sourceTree = "<group>"; };
 		2467E3AB2BA62D7A003629D6 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		2467E3AC2BA62D7A003629D6 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		2467E3AD2BA62D7A003629D6 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		2467E3B32BA630A0003629D6 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomFont.swift; path = "../../../../../Downloads/SwiftUI Animations-2/Xcode Course/4. Custom Fonts/Animated/CustomFont.swift"; sourceTree = "<group>"; };
-		2467E3B62BA63FE8003629D6 /* HCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCard.swift; sourceTree = "<group>"; };
+		2467E3B62BA63FE8003629D6 /* HCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCardView.swift; sourceTree = "<group>"; };
 		2480E3192BA2808500B82D35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2480E31B2BA280F200B82D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2480E31D2BA287B800B82D35 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
+		24B4C4DA2BA8FF5F00BDD082 /* VCardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCardDetailsView.swift; sourceTree = "<group>"; };
 		24B62D632B980D3B0026FDB5 /* UniLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B62D662B980D3B0026FDB5 /* UniHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniHelpApp.swift; sourceTree = "<group>"; };
 		24B62D682B980D3B0026FDB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,8 +146,9 @@
 				24572D5D2B9C208100BADCBE /* InputView.swift */,
 				24572D6A2B9C3A2E00BADCBE /* SettingsRowView.swift */,
 				24DDFE332BA60761001F3386 /* TabView.swift */,
-				2467E3A82BA62ADE003629D6 /* VCard.swift */,
-				2467E3B62BA63FE8003629D6 /* HCard.swift */,
+				2467E3A82BA62ADE003629D6 /* VCardView.swift */,
+				2467E3B62BA63FE8003629D6 /* HCardView.swift */,
+				24B4C4DA2BA8FF5F00BDD082 /* VCardDetailsView.swift */,
 				2467E3B32BA630A0003629D6 /* CustomFont.swift */,
 			);
 			path = Components;
@@ -446,13 +449,14 @@
 			files = (
 				2480E31E2BA287B800B82D35 /* Utilites.swift in Sources */,
 				24572D5E2B9C208100BADCBE /* InputView.swift in Sources */,
-				2467E3A92BA62ADE003629D6 /* VCard.swift in Sources */,
+				2467E3A92BA62ADE003629D6 /* VCardView.swift in Sources */,
 				24B62D692B980D3B0026FDB5 /* ContentView.swift in Sources */,
+				24B4C4DB2BA8FF5F00BDD082 /* VCardDetailsView.swift in Sources */,
 				24572D652B9C228D00BADCBE /* LoginView.swift in Sources */,
 				24B62D672B980D3B0026FDB5 /* UniHelpApp.swift in Sources */,
 				24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */,
 				24572D6D2B9C3C0800BADCBE /* User.swift in Sources */,
-				2467E3B72BA63FE8003629D6 /* HCard.swift in Sources */,
+				2467E3B72BA63FE8003629D6 /* HCardView.swift in Sources */,
 				2467E3A72BA6293D003629D6 /* StudySession.swift in Sources */,
 				24572D692B9C386800BADCBE /* ProfileView.swift in Sources */,
 				24572D672B9C284E00BADCBE /* RegistrationView.swift in Sources */,

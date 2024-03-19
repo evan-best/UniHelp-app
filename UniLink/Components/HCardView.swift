@@ -1,5 +1,5 @@
 //
-//  HCard.swift
+//  HCardView.swift
 //  UniLink
 //
 //  Created by Evan Best on 2024-03-16.

@@ -25,7 +25,7 @@ struct HomeView: View {
     var content: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Open Groups")
-                .customFont(.largeTitle)
+                .customFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
@@ -37,20 +37,21 @@ struct HomeView: View {
                 }
                 .padding(20)
                 .padding(.bottom, 10)
-            }
-            
-            Text("My Groups")
-                .customFont(.title3)
-                .padding(.horizontal,20)
-                .padding(.bottom, 10)
-                .frame(maxWidth: .infinity, alignment: .center)
-            
-            VStack (spacing: 20) {
-                ForEach(StudySessions) { session in
-                    HCard(studySession: session)
-                }
+                
             }
             .padding(20)
+            
+            Text("Your Groups")
+                .customFont(.title2)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.horizontal, 20)
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(StudySessions) { session in
+                    if session.members.contains(viewModel.currentUser?.fullname) {
+                        HCard(studySession: session)
+                    }
+                }
+            }
         }
     }
 }
