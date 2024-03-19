@@ -11,7 +11,7 @@ import MapKit
 struct VCardDetails: View {
     @Binding var showDetails: Bool
     @EnvironmentObject var viewModel: AuthViewModel
-    @State var studySession: StudySession
+    var studySession: StudySession
     var body: some View {
         Button {
             withAnimation {
@@ -79,8 +79,8 @@ struct VCardDetails: View {
                 }
                 Button {
                     // Check if user is already a member of this studySession
-                    if !studySession.members.contains(viewModel.currentUser?.fullname ?? "") {
-                        studySession.members.append(viewModel.currentUser?.fullname ?? "")
+                    if !studySession.members.contains(viewModel.currentUser?.fullname) {
+                        studySession.members.append(viewModel.currentUser?.fullname)
                     } else {
                         print("The member \(viewModel.currentUser?.fullname) is already a member of this study session.")
                     }

@@ -18,7 +18,7 @@
 		24572D762B9C3ECF00BADCBE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24572D752B9C3ECF00BADCBE /* FirebaseFirestoreSwift */; };
 		24572D782B9C3ECF00BADCBE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 24572D772B9C3ECF00BADCBE /* FirebaseStorage */; };
 		24572D7C2B9C3F2B00BADCBE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24572D7B2B9C3F2B00BADCBE /* AuthViewModel.swift */; };
-		2467E3A72BA6293D003629D6 /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3A62BA6293D003629D6 /* StudySession.swift */; };
+		2467E3A72BA6293D003629D6 /* StudySessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3A62BA6293D003629D6 /* StudySessionViewModel.swift */; };
 		2467E3A92BA62ADE003629D6 /* VCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3A82BA62ADE003629D6 /* VCardView.swift */; };
 		2467E3AE2BA62D7A003629D6 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2467E3AB2BA62D7A003629D6 /* Inter-Regular.ttf */; };
 		2467E3AF2BA62D7A003629D6 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2467E3AC2BA62D7A003629D6 /* Poppins-Bold.ttf */; };
@@ -71,7 +71,7 @@
 		24572D6A2B9C3A2E00BADCBE /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		24572D6C2B9C3C0800BADCBE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		24572D7B2B9C3F2B00BADCBE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2467E3A62BA6293D003629D6 /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
+		2467E3A62BA6293D003629D6 /* StudySessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionViewModel.swift; sourceTree = "<group>"; };
 		2467E3A82BA62ADE003629D6 /* VCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCardView.swift; sourceTree = "<group>"; };
 		2467E3AB2BA62D7A003629D6 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		2467E3AC2BA62D7A003629D6 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				24572D6C2B9C3C0800BADCBE /* User.swift */,
-				2467E3A62BA6293D003629D6 /* StudySession.swift */,
+				2467E3A62BA6293D003629D6 /* StudySessionViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,7 +457,7 @@
 				24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */,
 				24572D6D2B9C3C0800BADCBE /* User.swift in Sources */,
 				2467E3B72BA63FE8003629D6 /* HCardView.swift in Sources */,
-				2467E3A72BA6293D003629D6 /* StudySession.swift in Sources */,
+				2467E3A72BA6293D003629D6 /* StudySessionViewModel.swift in Sources */,
 				24572D692B9C386800BADCBE /* ProfileView.swift in Sources */,
 				24572D672B9C284E00BADCBE /* RegistrationView.swift in Sources */,
 				24572D6B2B9C3A2E00BADCBE /* SettingsRowView.swift in Sources */,

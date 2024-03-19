@@ -47,7 +47,7 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(StudySessions) { session in
-                    if session.members.contains(viewModel.currentUser?.fullname) {
+                    if session.members.contains(viewModel.currentUser?.fullname){
                         HCard(studySession: session)
                     }
                 }
