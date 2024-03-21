@@ -40,4 +40,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(StudySessionViewModel())
+        .environmentObject(AuthViewModel())
 }

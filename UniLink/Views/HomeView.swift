@@ -47,7 +47,11 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
             ScrollView(.vertical, showsIndicators: false) {
                 if session.members.contains(viewModel.currentUser?.fullname){
-                    HCard()
+                    VStack (spacing: 10) {
+                        HCard()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(10)
+                    }
                 }
             }
         }
@@ -58,4 +62,6 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(StudySessionViewModel())
+        .environmentObject(AuthViewModel())
 }

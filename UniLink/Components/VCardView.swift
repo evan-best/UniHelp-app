@@ -17,7 +17,7 @@ struct VCard: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing:6){
                 Text(session.title)
-                    .customFont(.title3)
+                    .customFont(.title2)
                     .layoutPriority(1)
                 
                 Spacer()
@@ -76,4 +76,5 @@ struct VCard: View {
 
 #Preview {
     VCard()
+        .environmentObject(StudySessionViewModel())
 }

@@ -122,4 +122,5 @@ struct VCardDetails: View {
 
 #Preview {
     VCardDetails(showDetails: .constant(true))
+        .environmentObject(StudySessionViewModel())
 }

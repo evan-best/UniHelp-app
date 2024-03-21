@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct HCard: View {
+    @State var showDetails = false
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
     private var session: StudySession {
         return studySessionViewModel.studySession
     }
     var body: some View {
         
-        HStack (spacing: 20) {
-            VStack (alignment: .leading, spacing: 8){
+        HStack {
+            VStack (alignment: .leading, spacing: 6){
                 Text(session.title)
-                    .customFont(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .customFont(.title3)
                 Text(session.caption)
                     .customFont(.body)
+                HStack {
+                    // TODO: Display initials of attendees (max: 3)
+                    Image(systemName: "person.fill")
+                        .resizable()
+                        .frame(width: 12, height: 12)
+                    Text("\(session.members.count)")
+                        .customFont(.footnote2)
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
                 // Extract day
@@ -40,14 +49,31 @@ struct HCard: View {
             )
             
         }
-        .padding(30)
-        .frame(maxWidth: .infinity, maxHeight: 110)
-        .background(Color(.gray))
+        .padding(20)
+        .frame(width: 320, height: 90, alignment: .center)
+        .padding(10)
         .foregroundStyle(Color(.white))
-        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+        .background(
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [.accentColor],
+                        startPoint: .leading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+            )
+        
+        .onTapGesture {
+            self.showDetails = true
+        }
+        .sheet(isPresented: $showDetails) {
+            VCardDetails(showDetails: $showDetails)
+        }
     }
 }
 
 #Preview {
     HCard()
+        .environmentObject(StudySessionViewModel())
 }
