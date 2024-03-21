@@ -12,6 +12,7 @@ import FirebaseCore
 @main
 struct UniHelpApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var studySessionViewModel = StudySessionViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -21,6 +22,7 @@ struct UniHelpApp: App {
             
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(studySessionViewModel)
         }
     }
 }

@@ -11,7 +11,10 @@ import MapKit
 struct VCardDetails: View {
     @Binding var showDetails: Bool
     @EnvironmentObject var viewModel: AuthViewModel
-    @State var session: StudySession
+    @EnvironmentObject var studySessionViewModel: StudySessionViewModel
+    private var session: StudySession {
+        return studySessionViewModel.studySession
+    }
     var body: some View {
         Button {
             withAnimation {
@@ -79,8 +82,8 @@ struct VCardDetails: View {
                 }
                 Button {
                     // Check if user is already a member of this studySession
-                    if !session.members.contains(viewModel.currentUser?.fullname) {
-                        session.members.append(viewModel.currentUser?.fullname)
+                    if !studySessionViewModel.studySession.members.contains(viewModel.currentUser?.fullname) {
+                        studySessionViewModel.studySession.members.append(viewModel.currentUser?.fullname)
                     } else {
                         print("The member \(viewModel.currentUser?.fullname ?? "") is already a member of this study session.")
                     }
@@ -118,5 +121,5 @@ struct VCardDetails: View {
 
 
 #Preview {
-    VCardDetails(showDetails: .constant(true), session: StudySession(title: "Title", caption: "caption", date: "Mar 20", time: "12:00pm - 2:00pm", members: ["John Doe"]))
+    VCardDetails(showDetails: .constant(true))
 }

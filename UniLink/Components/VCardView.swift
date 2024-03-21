@@ -9,8 +9,10 @@ import SwiftUI
 
 struct VCard: View {
     @State var showDetails = false
-    @State var session: StudySession
-    
+    @EnvironmentObject var studySessionViewModel: StudySessionViewModel
+    private var session: StudySession {
+        return studySessionViewModel.studySession
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing:6){
@@ -67,11 +69,11 @@ struct VCard: View {
             self.showDetails = true
         }
         .sheet(isPresented: $showDetails) {
-            VCardDetails(showDetails: $showDetails, session: session)
+            VCardDetails(showDetails: $showDetails)
         }
     }
 }
 
 #Preview {
-    VCard(session: StudySession(title: "Title", caption: "caption", date: "Mar 20", time: "12:00pm - 2:00pm", members: ["John Doe"]))
+    VCard()
 }

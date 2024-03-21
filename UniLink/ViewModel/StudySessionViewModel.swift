@@ -14,8 +14,8 @@ class StudySessionViewModel: ObservableObject {
     @Published var studySession: StudySession
     private let ref = Database.database().reference().child("study_sessions")
     
-    init(studySession: StudySession) {
-        self.studySession = studySession
+    init() {
+        self.studySession = StudySession(title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"])
     }
     
     func createSession(session: StudySession) async throws {

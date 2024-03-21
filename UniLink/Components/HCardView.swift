@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct HCard: View {
-    @State var session: StudySession
-    
+    @EnvironmentObject var studySessionViewModel: StudySessionViewModel
+    private var session: StudySession {
+        return studySessionViewModel.studySession
+    }
     var body: some View {
         
         HStack (spacing: 20) {
@@ -20,19 +22,32 @@ struct HCard: View {
                 Text(session.caption)
                     .customFont(.body)
             }
-            Divider()
             
-            Text(session.date)
+            VStack {
+                // Extract day
+                Text(session.date.components(separatedBy: " ")[1])
+                    .foregroundColor(.white).customFont(.headline)
+                // Extract month
+                Text(session.date.components(separatedBy: " ")[0])
+                    .foregroundColor(.white)
+                    .customFont(.headline)
+            }
+            .padding(.horizontal,10)
+            .padding(.vertical, 6)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(.systemGray2))
+            )
             
         }
         .padding(30)
         .frame(maxWidth: .infinity, maxHeight: 110)
-        .background(Color.accentColor)
+        .background(Color(.gray))
         .foregroundStyle(Color(.white))
         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
     }
 }
 
 #Preview {
-    HCard(session: StudySession(title: "Title", caption: "caption", date: "Mar 20", time: "12:00pm - 2:00pm", members: ["John Doe"]))
+    HCard()
 }
