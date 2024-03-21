@@ -8,31 +8,31 @@
 import SwiftUI
 
 struct HCard: View {
-    var studySession: StudySession
+    @State var session: StudySession
     
     var body: some View {
         
         HStack (spacing: 20) {
             VStack (alignment: .leading, spacing: 8){
-                Text(studySession.title)
+                Text(session.title)
                     .customFont(.title2)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(studySession.caption)
+                Text(session.caption)
                     .customFont(.body)
             }
             Divider()
             
-            Text(studySession.date)
+            Text(session.date)
             
         }
         .padding(30)
         .frame(maxWidth: .infinity, maxHeight: 110)
-        .background(studySession.color)
+        .background(Color.accentColor)
         .foregroundStyle(Color(.white))
         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
     }
 }
 
 #Preview {
-    HCard(studySession: StudySessions[3])
+    HCard(session: StudySession(title: "Title", caption: "caption", date: "Mar 20", time: "12:00pm - 2:00pm", members: ["John Doe"]))
 }

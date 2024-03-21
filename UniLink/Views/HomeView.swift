@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-
 struct HomeView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     @EnvironmentObject var viewModel: AuthViewModel
-    
+    let session = StudySession(title: "Title", caption: "caption", date: "Mar 20", time: "12:00pm - 2:00pm", members: ["John Doe"])
     var body: some View {
         ZStack {
             Color(.background)
@@ -31,9 +30,7 @@ struct HomeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
-                    ForEach(StudySessions) { session in
-                        VCard(studySession: session)
-                    }
+                    VCard(session: session)
                 }
                 .padding(20)
                 .padding(.bottom, 10)
@@ -46,10 +43,8 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal, 20)
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(StudySessions) { session in
-                    if session.members.contains(viewModel.currentUser?.fullname){
-                        HCard(studySession: session)
-                    }
+                if session.members.contains(viewModel.currentUser?.fullname){
+                    HCard(session: session)
                 }
             }
         }
