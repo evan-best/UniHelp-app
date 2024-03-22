@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24203B2D2BAE195E00BF6EE2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 24203B2C2BAE195E00BF6EE2 /* GoogleSignIn */; };
+		24203B2F2BAE195E00BF6EE2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24203B2E2BAE195E00BF6EE2 /* GoogleSignInSwift */; };
+		24203B312BAE196600BF6EE2 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 24203B302BAE196600BF6EE2 /* RiveRuntime */; };
 		24572D5E2B9C208100BADCBE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24572D5D2B9C208100BADCBE /* InputView.swift */; };
 		24572D652B9C228D00BADCBE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24572D642B9C228D00BADCBE /* LoginView.swift */; };
 		24572D672B9C284E00BADCBE /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24572D662B9C284E00BADCBE /* RegistrationView.swift */; };
@@ -25,8 +28,6 @@
 		2467E3B02BA62D7A003629D6 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2467E3AD2BA62D7A003629D6 /* Inter-SemiBold.ttf */; };
 		2467E3B42BA630A0003629D6 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3B32BA630A0003629D6 /* CustomFont.swift */; };
 		2467E3B72BA63FE8003629D6 /* HCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467E3B62BA63FE8003629D6 /* HCardView.swift */; };
-		2480E3122BA27C5500B82D35 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 2480E3112BA27C5500B82D35 /* GoogleSignIn */; };
-		2480E3142BA27C5500B82D35 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2480E3132BA27C5500B82D35 /* GoogleSignInSwift */; };
 		2480E31E2BA287B800B82D35 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2480E31D2BA287B800B82D35 /* Utilites.swift */; };
 		24B4C4DB2BA8FF5F00BDD082 /* VCardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4C4DA2BA8FF5F00BDD082 /* VCardDetailsView.swift */; };
 		24B4C4DE2BAA08D900BDD082 /* StudySessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4C4DD2BAA08D900BDD082 /* StudySessionViewModel.swift */; };
@@ -38,7 +39,6 @@
 		24B62D6B2B980D3D0026FDB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */; };
 		24B62D6E2B980D3D0026FDB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */; };
 		24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFE2E2BA60540001F3386 /* HomeView.swift */; };
-		24DDFE322BA6072C001F3386 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 24DDFE312BA6072C001F3386 /* RiveRuntime */; };
 		24DDFE342BA60761001F3386 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFE332BA60761001F3386 /* TabView.swift */; };
 		24E5285B2BA60D5D0036311A /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528542BA60D5D0036311A /* house.riv */; };
 		24E5285C2BA60D5D0036311A /* confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = 24E528552BA60D5D0036311A /* confetti.riv */; };
@@ -109,15 +109,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2480E3122BA27C5500B82D35 /* GoogleSignIn in Frameworks */,
 				24572D722B9C3ECF00BADCBE /* FirebaseAuth in Frameworks */,
-				24DDFE322BA6072C001F3386 /* RiveRuntime in Frameworks */,
 				24B4C4E42BAA0CBF00BDD082 /* FirebaseDatabaseSwift in Frameworks */,
+				24203B312BAE196600BF6EE2 /* RiveRuntime in Frameworks */,
 				24572D782B9C3ECF00BADCBE /* FirebaseStorage in Frameworks */,
-				2480E3142BA27C5500B82D35 /* GoogleSignInSwift in Frameworks */,
+				24203B2F2BAE195E00BF6EE2 /* GoogleSignInSwift in Frameworks */,
 				24572D742B9C3ECF00BADCBE /* FirebaseFirestore in Frameworks */,
 				24B4C4E22BAA0CBF00BDD082 /* FirebaseDatabase in Frameworks */,
 				24572D762B9C3ECF00BADCBE /* FirebaseFirestoreSwift in Frameworks */,
+				24203B2D2BAE195E00BF6EE2 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +138,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24203B2B2BAE195E00BF6EE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		24572D582B9C1D8300BADCBE /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +260,7 @@
 			children = (
 				24B62D652B980D3B0026FDB5 /* UniLink */,
 				24B62D642B980D3B0026FDB5 /* Products */,
+				24203B2B2BAE195E00BF6EE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,11 +336,11 @@
 				24572D732B9C3ECF00BADCBE /* FirebaseFirestore */,
 				24572D752B9C3ECF00BADCBE /* FirebaseFirestoreSwift */,
 				24572D772B9C3ECF00BADCBE /* FirebaseStorage */,
-				2480E3112BA27C5500B82D35 /* GoogleSignIn */,
-				2480E3132BA27C5500B82D35 /* GoogleSignInSwift */,
-				24DDFE312BA6072C001F3386 /* RiveRuntime */,
 				24B4C4E12BAA0CBF00BDD082 /* FirebaseDatabase */,
 				24B4C4E32BAA0CBF00BDD082 /* FirebaseDatabaseSwift */,
+				24203B2C2BAE195E00BF6EE2 /* GoogleSignIn */,
+				24203B2E2BAE195E00BF6EE2 /* GoogleSignInSwift */,
+				24203B302BAE196600BF6EE2 /* RiveRuntime */,
 			);
 			productName = UniHelp;
 			productReference = 24B62D632B980D3B0026FDB5 /* UniLink.app */;
@@ -649,8 +657,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -680,8 +688,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -841,6 +849,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		24203B2C2BAE195E00BF6EE2 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2480E3102BA27C5500B82D35 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		24203B2E2BAE195E00BF6EE2 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2480E3102BA27C5500B82D35 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		24203B302BAE196600BF6EE2 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24DDFE302BA6072C001F3386 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
 		24572D712B9C3ECF00BADCBE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 24572D702B9C3ECF00BADCBE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -861,16 +884,6 @@
 			package = 24572D702B9C3ECF00BADCBE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		2480E3112BA27C5500B82D35 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2480E3102BA27C5500B82D35 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		2480E3132BA27C5500B82D35 /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2480E3102BA27C5500B82D35 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
 		24B4C4E12BAA0CBF00BDD082 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseDatabase;
@@ -878,11 +891,6 @@
 		24B4C4E32BAA0CBF00BDD082 /* FirebaseDatabaseSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseDatabaseSwift;
-		};
-		24DDFE312BA6072C001F3386 /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 24DDFE302BA6072C001F3386 /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
