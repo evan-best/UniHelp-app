@@ -19,7 +19,7 @@ class StudySessionViewModel: ObservableObject {
     }
     
     func createSession(session: StudySession) async throws {
-        try await self.ref.child(session.id.uuidString).setValue(StudySession(title: session.title, caption: session.caption, date: session.date, time: session.time, members: session.members))
+        try await self.ref.child(session.id.uuidString).setValue(["title": session.title, "caption": session.caption, "date": session.date, "time": session.time, "members": session.members])
     }
     
     func fetchSession(session: StudySession) async {
