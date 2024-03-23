@@ -27,8 +27,7 @@ class StudySessionViewModel: ObservableObject {
         }
     }
     
-    func saveSession() {
-        let session = self.studySession
+    func saveSession(session: StudySession) {
         let key = session.id.uuidString
         let loc_session = [
             "title": session.title,
@@ -48,32 +47,60 @@ class StudySessionViewModel: ObservableObject {
     }
 
     
-    func fetchSession(session: StudySession) async {
-        guard let result = try? await self.ref.child(session.id.uuidString).getData() else { return }
-        self.studySession = try! result.data(as: StudySession.self)
-    }
-    
-    func fetchAllSessions(completion: @escaping ([StudySession]?) -> Void) async {
-        ref.observe(.value) { snapshot in
-            guard let sessionData = snapshot.value as? [String: Any] else {
-                print("DEBUG: Failed to fetch sessions")
-                return
-            }
-            var sessions: [StudySession] = []
-            for (key,value) in sessionData {
-                if let sessionData = value as? [String: Any],
-                   let title = sessionData["title"] as? String,
-                   let caption = sessionData["caption"] as? String,
-                   let date = sessionData["date"] as? String,
-                   let time = sessionData["time"] as? String,
-                   let members = sessionData["members"] as? [String] {
-                    let id = UUID(uuidString: key)!
-                    let session = StudySession(id: id, title: title, caption: caption, date: date, time: time, members: members)
-                    sessions.append(session)
-                }
-            }
-            completion(sessions)
+    func fetchSession(sessionID: UUID) async throws -> StudySession? {
+        let snapshot = try await ref.child(sessionID.uuidString).getData() // Fetch data for the specific session
+        guard let sessionData = snapshot.value as? [String: Any] else {
+            print("DEBUG: Failed to fetch session with ID \(sessionID)")
+            return nil
         }
+        
+        // Parse session data
+        guard let title = sessionData["title"] as? String,
+              let caption = sessionData["caption"] as? String,
+              let date = sessionData["date"] as? String,
+              let time = sessionData["time"] as? String,
+              let members = sessionData["members"] as? [String] else {
+            print("DEBUG: Invalid session data for session with ID \(sessionID)")
+            return nil
+        }
+        
+        // Create and return the session object
+        return StudySession(id: sessionID, title: title, caption: caption, date: date, time: time, members: members)
+    }
+
+
+    
+    func fetchAllSessions() async throws -> [StudySession]? {
+        let snapshot = try await ref.getData()
+        guard let sessionData = snapshot.value as? [String: Any] else {
+            print("DEBUG: Failed to fetch sessions")
+            return nil
+        }
+        var sessions: [StudySession] = []
+        for (key, value) in sessionData {
+            if let sessionData = value as? [String: Any],
+               let title = sessionData["title"] as? String,
+               let caption = sessionData["caption"] as? String,
+               let date = sessionData["date"] as? String,
+               let time = sessionData["time"] as? String,
+               let members = sessionData["members"] as? [String] {
+                let id = UUID(uuidString: key)!
+                let session = StudySession(id: id, title: title, caption: caption, date: date, time: time, members: members)
+                sessions.append(session)
+            }
+        }
+        return sessions
     }
     
+    func getMembers(session: StudySession) async throws -> [String?]? {
+        // Fetch the session
+        guard let fetchedSession = try await fetchSession(sessionID: session.id) else {
+            // Session not found
+            return nil
+        }
+        
+        // Return the members of the fetched session
+        return fetchedSession.members
+    }
+
 }

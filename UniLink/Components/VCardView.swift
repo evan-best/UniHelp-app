@@ -10,9 +10,7 @@ import SwiftUI
 struct VCard: View {
     @State var showDetails = false
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
-    private var session: StudySession {
-        return studySessionViewModel.studySession
-    }
+    @State var session: StudySession
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing:6){
@@ -69,12 +67,12 @@ struct VCard: View {
             self.showDetails = true
         }
         .sheet(isPresented: $showDetails) {
-            VCardDetails(showDetails: $showDetails)
+            VCardDetails(showDetails: $showDetails, session: $session)
         }
     }
 }
 
 #Preview {
-    VCard()
+    VCard(session: StudySession(title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
         .environmentObject(StudySessionViewModel())
 }

@@ -12,9 +12,7 @@ struct VCardDetails: View {
     @Binding var showDetails: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
-    private var session: StudySession {
-        return studySessionViewModel.studySession
-    }
+    @Binding var session: StudySession
     var body: some View {
         Button {
             withAnimation {
@@ -82,9 +80,10 @@ struct VCardDetails: View {
                 }
                 Button {
                     // Check if user is already a member of this studySession
-                    if !studySessionViewModel.studySession.members.contains(viewModel.currentUser?.fullname) {
-                        studySessionViewModel.studySession.members.append(viewModel.currentUser?.fullname)
-                        studySessionViewModel.saveSession()
+                    if !session.members.contains(viewModel.currentUser?.fullname) {
+                        session.members.append(viewModel.currentUser?.fullname)
+                        studySessionViewModel.saveSession(session: session)
+                        print(session.members)
                     } else {
                         print("The member \(viewModel.currentUser?.fullname ?? "") is already a member of this study session.")
                     }
@@ -121,7 +120,7 @@ struct VCardDetails: View {
 }
 
 
-#Preview {
-    VCardDetails(showDetails: .constant(true))
-        .environmentObject(StudySessionViewModel())
-}
+//Preview {
+//    VCardDetails(showDetails: .constant(true), session: StudySession(title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
+ //       .environmentObject(StudySessionViewModel())
+//}
