@@ -84,6 +84,7 @@ struct VCardDetails: View {
                     // Check if user is already a member of this studySession
                     if !studySessionViewModel.studySession.members.contains(viewModel.currentUser?.fullname) {
                         studySessionViewModel.studySession.members.append(viewModel.currentUser?.fullname)
+                        studySessionViewModel.saveSession()
                     } else {
                         print("The member \(viewModel.currentUser?.fullname ?? "") is already a member of this study session.")
                     }
