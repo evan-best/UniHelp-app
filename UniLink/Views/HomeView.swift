@@ -11,7 +11,11 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
     @State var session: StudySession?
-    @State var sessions: [StudySession] = []
+    @State var sessions: [StudySession] = [] {
+        didSet {
+            fetchSessions()
+        }
+    }
     
     var body: some View {
         ZStack {

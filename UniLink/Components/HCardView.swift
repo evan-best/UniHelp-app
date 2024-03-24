@@ -72,6 +72,6 @@ struct HCard: View {
 }
 
 #Preview {
-    HCard(session: StudySession(title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
+    HCard(session: StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
         .environmentObject(StudySessionViewModel())
 }
