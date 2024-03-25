@@ -72,6 +72,7 @@ class AuthViewModel: ObservableObject {
                 } else {
                     Firestore.firestore().collection("users").document(uid).delete()
                     self.currentUser = nil
+                    self.userSession = nil
                 }
             }
         }
