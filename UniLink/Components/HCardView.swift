@@ -16,16 +16,20 @@ struct HCard: View {
         HStack {
             VStack (alignment: .leading, spacing: 6){
                 Text(session.title)
-                    .customFont(.title3)
+                    .customFont(.title2)
+                    .foregroundStyle(Color(.darkGray))
                 Text(session.caption)
                     .customFont(.body)
+                    .foregroundStyle(Color(.darkGray))
                 HStack {
                     // TODO: Display initials of attendees (max: 3)
                     Image(systemName: "person.fill")
                         .resizable()
                         .frame(width: 12, height: 12)
+                        .foregroundStyle(Color(.systemPurple))
                     Text("\(session.members.count)")
                         .customFont(.footnote2)
+                        .foregroundStyle(Color(.darkGray))
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -55,12 +59,14 @@ struct HCard: View {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(
                     LinearGradient(
-                        colors: [.accentColor],
+                        colors: [.white],
                         startPoint: .leading,
                         endPoint: .bottomTrailing
                     )
                 )
             )
+        .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 2)
+
         
         .onTapGesture {
             self.showDetails = true

@@ -11,11 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
     @State var session: StudySession?
-    @State var sessions: [StudySession] = [] {
-        didSet {
-            fetchSessions()
-        }
-    }
+    @State var sessions: [StudySession] = []
     
     var body: some View {
         ZStack {
@@ -29,6 +25,11 @@ struct HomeView: View {
                 fetchSessions()
             }
         }
+        .background(
+            Circle()
+                .fill(Color(.systemPurple))
+                .offset(x: 180 , y: -400)
+                .frame(width: 800, height: 800))
     }
     func fetchSessions() {
         Task {
@@ -45,7 +46,7 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 0){
             Text("Open Groups")
                 .customFont(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal, 20)
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -58,7 +59,7 @@ struct HomeView: View {
                 .padding(.bottom, 10)
                 
             }
-            .padding(20)
+            .padding(10)
             
             Text("Your Groups")
                 .customFont(.title2)

@@ -75,8 +75,8 @@ struct VCardDetails: View {
                 } label: {
                     Image(systemName: "heart")
                         .resizable()
-                        .frame(width: 25, height: 25, alignment: .leading)
-                        .padding(.leading, 10)
+                        .frame(width: 25, height: 23, alignment: .leading)
+                        .padding(.leading, 15)
                 }
                 Button {
                     // Check if user is already a member of this studySession
@@ -92,7 +92,7 @@ struct VCardDetails: View {
                         Text("SIGN UP")
                             .customFont(.headline)
                     }
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color(.white))
                     .frame(width: 140, height: 48)
                 }
                 .background(Color.mint)
@@ -106,13 +106,13 @@ struct VCardDetails: View {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(
                     LinearGradient(
-                        colors: [.accentColor],
+                        colors: [Color(.systemPurple)],
                         startPoint: .leading,
                         endPoint: .bottomTrailing
                     )
                 )
-                .shadow(color: .accentColor.opacity(0.3), radius: 8, x: 0, y: 12)
-                .shadow(color: .accentColor.opacity(0.3), radius: 2, x: 0, y: 1)
+                .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 12)
+                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
         )
         .frame(height: 580)
         .padding([.top, .horizontal], 10)
@@ -120,7 +120,7 @@ struct VCardDetails: View {
 }
 
 
-//Preview {
-//    VCardDetails(showDetails: .constant(true), session: StudySession(title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
- //       .environmentObject(StudySessionViewModel())
-//}
+#Preview {
+    VCardDetails(showDetails: .constant(true), session: .constant(StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"])))
+        .environmentObject(StudySessionViewModel())
+}
