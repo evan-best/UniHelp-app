@@ -19,7 +19,7 @@ struct ContentView: View {
                     case .chat:
                         Text("Chat")
                     case .search:
-                        Text("Search")
+                        SearchView()
                     case .home:
                         HomeView()
                     case .bell:

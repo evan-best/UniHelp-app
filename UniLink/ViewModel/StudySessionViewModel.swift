@@ -12,6 +12,7 @@ import FirebaseDatabaseSwift
 @MainActor
 class StudySessionViewModel: ObservableObject {
     @Published var studySession: StudySession
+    @Published var searchText: String = ""
     private let ref = Database.database().reference().child("study_sessions")
     
     init() {
