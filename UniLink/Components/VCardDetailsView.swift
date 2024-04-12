@@ -12,7 +12,7 @@ struct VCardDetails: View {
     @Binding var showDetails: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
-    @Binding var session: StudySession
+    @Binding var session: StudySession?
     var body: some View {
         Button {
             withAnimation {
@@ -33,7 +33,7 @@ struct VCardDetails: View {
         }
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text(session.title)
+                Text(session!.title)
                     .customFont(.title2)
                     .layoutPriority(1)
                 
@@ -41,10 +41,10 @@ struct VCardDetails: View {
                 
                 VStack {
                     // Extract day
-                    Text(session.date.components(separatedBy: " ")[1])
+                    Text(session!.date.components(separatedBy: " ")[1])
                         .foregroundColor(.white).customFont(.headline)
                     // Extract month
-                    Text(session.date.components(separatedBy: " ")[0])
+                    Text(session!.date.components(separatedBy: " ")[0])
                         .foregroundColor(.white)
                         .customFont(.headline)
                 }
@@ -56,14 +56,14 @@ struct VCardDetails: View {
                 )
             }
             
-            Text(session.caption)
+            Text(session!.caption)
                 .customFont(.subheadline)
                 .opacity(0.7)
                 .padding(.bottom, 10)
             HStack {
                 // TODO: Display initials of attendees (max: 3)
                 Image(systemName: "person.fill")
-                Text("\(session.members.count)")
+                Text("\(session!.members.count)")
                     .customFont(.footnote2)
             }
             
@@ -80,10 +80,10 @@ struct VCardDetails: View {
                 }
                 Button {
                     // Check if user is already a member of this studySession
-                    if !session.members.contains(viewModel.currentUser?.fullname) {
-                        session.members.append(viewModel.currentUser?.fullname)
-                        studySessionViewModel.saveSession(session: session)
-                        print(session.members)
+                    if !session!.members.contains(viewModel.currentUser?.fullname) {
+                        session!.members.append(viewModel.currentUser?.fullname)
+                        studySessionViewModel.saveSession(session: session!)
+                        print(session!.members)
                     } else {
                         print("The member \(viewModel.currentUser?.fullname ?? "") is already a member of this study session.")
                     }
@@ -106,13 +106,13 @@ struct VCardDetails: View {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(
                     LinearGradient(
-                        colors: [Color(.systemPurple)],
+                        colors: [Color(.systemBlue), Color(.purple).opacity(0.8)],
                         startPoint: .leading,
                         endPoint: .bottomTrailing
                     )
                 )
-                .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 12)
-                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
+                .strokeBorder(Color.black, lineWidth: 3)
+                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
         )
         .frame(height: 580)
         .padding([.top, .horizontal], 10)

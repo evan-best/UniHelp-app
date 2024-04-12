@@ -37,18 +37,20 @@ class AuthViewModel: ObservableObject {
             await fetchUser()
         } catch {
             print("DEBUG: Failed to sign in user with error \(error.localizedDescription)")
+            throw error
         }
     }
     
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
-            self.userSession = result.user
             let user = User(id: result.user.uid, fullname: fullname, email: email)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            try await self.signIn(withEmail: email, password: password)
         } catch {
             print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+            throw error
         }
     }
     
@@ -125,7 +127,7 @@ class AuthViewModel: ObservableObject {
             await fetchUser()
             
             // Check if user exists in Firestore, if not, create user
-            if currentUser == nil {
+            if self.currentUser == nil {
                 let displayName = result.user.displayName ?? ""
                 let email = result.user.email ?? ""
                 try await createUser(withEmail: email, password: "", fullname: displayName)

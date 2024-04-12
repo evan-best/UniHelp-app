@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            if viewModel.userSession != nil {
+            if viewModel.userSession != nil && viewModel.currentUser != nil {
                 ZStack {
                     switch selectedTab {
                     case .chat:

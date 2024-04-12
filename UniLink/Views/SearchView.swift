@@ -22,6 +22,8 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 List (filteredSessions) { session in
+                    Button {
+                    } label: {
                         HStack {
                             VStack (alignment: .leading, spacing: 5){
                                 Text(session.title)
@@ -54,14 +56,19 @@ struct SearchView: View {
                                     .fill(Color(.systemGray2))
                             )
                         }
-                        .onTapGesture {
-                            self.showDetails = true
-                            self.selectedSession = session
-                            print("DEBUG: Selected session: \(session.title)")
+                    }
+                    .foregroundStyle(Color(.darkGray))
+                    .onTapGesture {
+                        self.selectedSession = session
+                        self.showDetails = true
+                    }
+                    .sheet(isPresented: $showDetails) {
+                        VCardDetails(showDetails: $showDetails, session: $selectedSession)
                     }
                 }
             }
         }
+        .ignoresSafeArea(.all)
         .listStyle(InsetGroupedListStyle())
         .searchable(text: $searchTerm, prompt: "Search")
         .task { fetchSessions() }

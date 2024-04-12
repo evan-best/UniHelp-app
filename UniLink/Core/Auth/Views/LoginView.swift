@@ -13,7 +13,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var navigateToProfile = false
+    @State private var navigateToHome = false
     
     var body: some View {
         NavigationView {
@@ -77,7 +77,7 @@ struct LoginView: View {
                     Task {
                         do {
                             try await viewModel.signInGoogle()
-                            navigateToProfile = true
+                            navigateToHome = true
                         } catch {
                             
                             print("DEBUG: Failed to sign in with Google with error \(error.localizedDescription)")
@@ -112,7 +112,7 @@ struct LoginView: View {
             }
             .background(
                 // Navigate to profile view when navigateToProfile is true
-                NavigationLink(destination: ProfileView(), isActive: $navigateToProfile) {
+                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
                     EmptyView()
                 })
         }
