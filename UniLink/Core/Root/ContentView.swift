@@ -22,8 +22,8 @@ struct ContentView: View {
                         SearchView()
                     case .home:
                         HomeView()
-                    case .bell:
-                        Text("Notifications")
+                    case .add:
+                        Text("Create a new session")
                     case .user:
                         ProfileView()
                     }

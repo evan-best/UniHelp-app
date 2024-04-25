@@ -6,81 +6,63 @@
 //
 
 import SwiftUI
-import RiveRuntime
+
+
+enum Tab: String, CaseIterable {
+    case chat
+    case search
+    case home
+    case add
+    case user
+    
+    var symbolName: String {
+        switch self {
+        case .chat:
+            return "message"
+        case .search:
+            return "magnifyingglass.circle"
+        case .home:
+            return "house"
+        case .add:
+            return "plus.circle"
+        case .user:
+            return "person"
+        }
+    }
+}
+
 
 struct TabView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
-    @Environment (\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack {
             Spacer()
             HStack {
-                tabContent
+                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                    Spacer()
+                    Image(systemName: selectedTab == tab ? tab.symbolName + ".fill" : tab.symbolName)
+                        .scaleEffect(selectedTab == tab ? 1.25 : 1.0)
+                        .foregroundStyle(Color.white)
+                        .font(.system(size:22))
+                        .onTapGesture {
+                            withAnimation(.easeIn(duration: 0.1)) {
+                                selectedTab = tab
+                            }
+                        }
+                    Spacer()
+                }
             }
-            .padding(12)
+            .frame(width: nil, height: 60)
             .background(Color(.systemPurple).opacity(0.9))
-            .background(.ultraThinMaterial)
-            .mask(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .shadow(color: Color(.systemGray).opacity(0.3),
-                    radius: 20, x:0, y: 20 )
-            .overlay(RoundedRectangle(cornerRadius: 24, style:.continuous)
-                .stroke(.linearGradient(colors: [.white.opacity(0.5), .white.opacity(0)], startPoint: .topLeading, endPoint: .bottomTrailing)))
-            .padding(.horizontal, 24)
-            
+            .background(.thinMaterial)
+            .cornerRadius(20)
+            .padding()
         }
     }
+}
     
-    // Tab menu contents
-    var tabContent: some View {
-        ForEach(tabItems) { item in
-            Button {
-                try? item.icon.setInput("active", value: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    try? item.icon.setInput("active",value:false)
-                }
-                withAnimation{
-                    selectedTab = item.tab
-                }
-            } label: {
-                item.icon.view()
-                    .frame(height: 36)
-                    .opacity(selectedTab == item.tab ? 1 : 0.5)
-                    .background(
-                        VStack {
-                            RoundedRectangle(cornerRadius: 2)
-                                .fill(.white)
-                                .frame(width: selectedTab == item.tab ? 20 : 0, height: 4)
-                                .offset(y: -20)
-                                .opacity(selectedTab == item.tab ? 1 : 0)
-                        })
-            }
-        }
-    }
-}
-
-
-struct TabItem: Identifiable {
-    var id = UUID()
-    var icon: RiveViewModel
-    var tab: Tab
-}
-
-// Rive items
-var tabItems = [
-    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "CHAT_Interactivity", artboardName: "CHAT"),tab: .chat),
-    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "SEARCH_Interactivity", artboardName: "SEARCH"),tab: .search),
-    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "HOME_interactivity", artboardName: "HOME"),tab: .home),
-    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "BELL_Interactivity", artboardName: "BELL"),tab: .bell),
-    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "USER_Interactivity", artboardName: "USER"),tab: .user),
-]
-
-enum Tab: String {
-    case chat
-    case search
-    case home
-    case bell
-    case user
-}
 #Preview {
     TabView()
 }
