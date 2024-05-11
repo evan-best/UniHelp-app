@@ -13,12 +13,11 @@ struct VCard: View {
     @State var session: StudySession?
     @State var images = [Image("VCard1"), Image("VCard2"), Image("VCard3"), Image("VCard4"), Image("VCard5"), Image("VCard7")]
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing:6){
+        VStack(alignment: .leading, spacing: 6) {
+            HStack{
                 Text(session!.title)
                     .customFont(.title2)
                     .foregroundStyle(Color(.darkGray))
-                
                 Spacer()
                 VStack {
                     // Extract day
@@ -37,11 +36,20 @@ struct VCard: View {
                 )
                 .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
             }
-            Text(session!.time)
-                .customFont(.subheadline)
-                .opacity(0.7)
-                .padding(.bottom, 10)
-            
+            HStack {
+                Text(session!.caption)
+                    .customFont(.subheadline)
+                    .opacity(0.8)
+                    .padding(.bottom, 8)
+                .lineLimit(2)
+            }
+            HStack {
+                Image(systemName: "clock")
+                    .opacity(0.8)
+                Text(session!.time)
+                    .customFont(.subheadline)
+                    .opacity(0.8)
+            }
             HStack {
                 Image(systemName: "person.fill")
                     .foregroundStyle(Color(.systemPurple))
@@ -50,27 +58,22 @@ struct VCard: View {
                 
                 // TODO: Display initials of attendees (max: 3)
             }
-            Spacer()
+            .padding(.top, 2)
             images.randomElement()?
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 160, alignment: .center)
+                .frame(width: 200, height: 140, alignment: .center)
         }
-        .padding(20)
+        .padding(12)
         .foregroundStyle(Color(.darkGray))
-        .frame(width: 240, height: 360, alignment: .topLeading)
+        .frame(width: 240, height: 350, alignment: .topLeading)
         .background(
-            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: [.white],
-                        startPoint: .leading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 12)
-                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(.white)
+                .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 3)
         )
+        .overlay(RoundedRectangle(cornerRadius: 20)
+            .stroke(Color.black, lineWidth: 0.5))
         .onTapGesture {
             self.showDetails = true
         }
@@ -81,6 +84,6 @@ struct VCard: View {
 }
 
 #Preview {
-    VCard(session: StudySession(id: UUID(),title: "COMP2003 Studying", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
+    VCard(session: StudySession(id: UUID(),title: "COMP2003 Studying", caption: "A test study group for CS2003. This is a super long caption that will test the formatting", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
         .environmentObject(StudySessionViewModel())
 }

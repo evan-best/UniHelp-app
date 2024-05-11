@@ -18,9 +18,13 @@ struct HCard: View {
                 Text(session!.title)
                     .customFont(.title2)
                     .foregroundStyle(Color(.darkGray))
-                Text(session!.caption)
-                    .customFont(.body)
-                    .foregroundStyle(Color(.darkGray))
+                HStack {
+                    Text(session!.time)
+                        .customFont(.subheadline2)
+                        .opacity(0.7)
+                        .padding(.bottom, 4)
+                }
+                .foregroundStyle(Color(.systemGray))
                 HStack {
                     // TODO: Display initials of attendees (max: 3)
                     Image(systemName: "person.fill")
@@ -51,22 +55,16 @@ struct HCard: View {
             )
             
         }
-        .padding(20)
-        .frame(width: 320, height: 90, alignment: .center)
         .padding(10)
+        .frame(width: 320, height: 90, alignment: .center)
+        .padding(4)
         .foregroundStyle(Color(.white))
         .background(
-            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: [.white],
-                        startPoint: .leading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-            )
-        .shadow(color: .black.opacity(0.3), radius: 8, x: 0, y: 2)
-
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(Color.white)
+        )
+        .overlay(RoundedRectangle(cornerRadius: 20)
+            .stroke(Color.black, lineWidth: 0.5))
         
         .onTapGesture {
             self.showDetails = true
@@ -78,6 +76,6 @@ struct HCard: View {
 }
 
 #Preview {
-    HCard(session: StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"]))
+    HCard(session: StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm", members: ["Jimmy John"]))
         .environmentObject(StudySessionViewModel())
 }

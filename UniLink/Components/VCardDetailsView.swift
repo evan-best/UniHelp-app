@@ -35,6 +35,7 @@ struct VCardDetails: View {
             HStack {
                 Text(session!.title)
                     .customFont(.title2)
+                    .foregroundStyle(Color(.darkGray))
                     .layoutPriority(1)
                 
                 Spacer()
@@ -63,10 +64,18 @@ struct VCardDetails: View {
             HStack {
                 // TODO: Display initials of attendees (max: 3)
                 Image(systemName: "person.fill")
+                    .foregroundStyle(Color.purple)
                 Text("\(session!.members.count)")
                     .customFont(.footnote2)
             }
-            
+            .padding(.vertical, 14)
+            HStack {
+                Image(systemName: "clock")
+                    .opacity(0.8)
+                Text(session!.time)
+                    .customFont(.subheadline)
+                    .opacity(0.8)
+            }
             Spacer()
             
             HStack (spacing: 160){
@@ -100,18 +109,11 @@ struct VCardDetails: View {
             }
         }
         .padding(16)
-        .foregroundStyle(Color(.white))
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: [Color(.systemBlue), Color(.purple).opacity(0.8)],
-                        startPoint: .leading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .strokeBorder(Color.black, lineWidth: 3)
+                .fill(Color.white)
+                .strokeBorder(Color.black, lineWidth: 1)
                 .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
         )
         .frame(height: 580)

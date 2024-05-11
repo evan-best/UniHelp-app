@@ -12,18 +12,22 @@ struct HomeView: View {
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
     @State var session: StudySession?
     @State var sessions: [StudySession] = []
-    
+    @State private var isLoading = false
     var body: some View {
         ZStack {
             Color(.background)
                 .ignoresSafeArea()
                 .opacity(0.5)
-            ScrollView {
-                content
+            if isLoading {
+                LoadingView()
+            } else {
+                ScrollView {
+                    content
+                }
             }
-            .onAppear {
-                fetchSessions()
-            }
+        }
+        .onAppear {
+            fetchSessions()
         }
         .background(
             Circle()
@@ -33,6 +37,7 @@ struct HomeView: View {
     }
     func fetchSessions() {
         Task {
+            isLoading = true
             do {
                 if let sessionList = try await studySessionViewModel.fetchAllSessions() {
                     sessions = sessionList
@@ -40,6 +45,7 @@ struct HomeView: View {
             } catch {
                 print("DEBUG: Error fetching sessions: \(error.localizedDescription)")
             }
+            isLoading = false
         }
     }
     var content: some View {

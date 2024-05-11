@@ -23,7 +23,7 @@ struct ContentView: View {
                     case .home:
                         HomeView()
                     case .add:
-                        Text("Create a new session")
+                        AddView()
                     case .user:
                         ProfileView()
                     }

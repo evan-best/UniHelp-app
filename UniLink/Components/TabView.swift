@@ -43,7 +43,7 @@ struct TabView: View {
                 ForEach(Tab.allCases, id: \.rawValue) { tab in
                     Spacer()
                     Image(systemName: selectedTab == tab ? tab.symbolName + ".fill" : tab.symbolName)
-                        .scaleEffect(selectedTab == tab ? 1.25 : 1.0)
+                        .scaleEffect(selectedTab == tab ? 1.25 : 1)
                         .foregroundStyle(Color.white)
                         .font(.system(size:22))
                         .onTapGesture {
