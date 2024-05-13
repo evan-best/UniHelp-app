@@ -11,6 +11,14 @@ struct HCard: View {
     @State var showDetails = false
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
     @State var session: StudySession?
+    
+    // DateFormatter to parse and format the date
+    // TODO: Make this operation in a new file
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
     var body: some View {
         
         HStack {
@@ -39,13 +47,20 @@ struct HCard: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
-                // Extract day
-                Text(session!.date.components(separatedBy: " ")[1])
-                    .foregroundColor(.white).customFont(.headline)
-                // Extract month
-                Text(session!.date.components(separatedBy: " ")[0])
-                    .foregroundColor(.white)
-                    .customFont(.headline)
+                // Parse and format the date
+                if let date = session?.date {
+                    let parsedDate = dateFormatter.date(from: date)!
+                    let month = Calendar.current.component(.month, from: parsedDate)
+                    let day = Calendar.current.component(.day, from: parsedDate)
+                    
+                    Text("\(day)")
+                        .foregroundColor(.white)
+                        .customFont(.headline)
+                    
+                    Text(getMonthAbbreviation(month))
+                        .foregroundColor(.white)
+                        .customFont(.headline)
+                }
             }
             .padding(.horizontal,10)
             .padding(.vertical, 6)
@@ -73,9 +88,14 @@ struct HCard: View {
             VCardDetails(showDetails: $showDetails, session: $session)
         }
     }
+    func getMonthAbbreviation(_ month: Int) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        return dateFormatter.shortMonthSymbols[month - 1]
+    }
 }
 
 #Preview {
-    HCard(session: StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm", members: ["Jimmy John"]))
+    HCard(session: StudySession(id: UUID(), title: "Title", caption: "caption", date: "2024-05-25", time: "12:00pm - 2:00pm", members: ["Jimmy John"], creator: "Jimmy John", location: "Memorial University of Newfoundland, St. John's, NL A1C 5S7"))
         .environmentObject(StudySessionViewModel())
 }

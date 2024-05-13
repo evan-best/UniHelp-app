@@ -17,6 +17,15 @@ struct SearchView: View {
         guard !searchTerm.isEmpty else { return sessions }
         return sessions.filter {$0.title.localizedCaseInsensitiveContains(searchTerm)}
     }
+    
+    // DateFormatter to parse and format the date
+    // TODO: Make this operation in a new file
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
     var body: some View {
         
         NavigationView {
@@ -41,11 +50,16 @@ struct SearchView: View {
                             }
                             Spacer()
                             VStack {
-                                // Extract day
-                                Text(session.date.components(separatedBy: " ")[1])
-                                    .foregroundColor(.white).customFont(.headline)
-                                // Extract month
-                                Text(session.date.components(separatedBy: " ")[0])
+                                // Parse and format the date
+                                let date = session.date
+                                let parsedDate = dateFormatter.date(from: date)!
+                                let month = Calendar.current.component(.month, from: parsedDate)
+                                let day = Calendar.current.component(.day, from: parsedDate)
+                                
+                                Text(getMonthAbbreviation(month))
+                                    .foregroundColor(.white)
+                                    .customFont(.headline)
+                                Text("\(day)")
                                     .foregroundColor(.white)
                                     .customFont(.headline)
                             }
@@ -74,7 +88,7 @@ struct SearchView: View {
         .task { fetchSessions() }
     }
     
-
+    
     func fetchSessions() {
         Task {
             do {
@@ -85,6 +99,12 @@ struct SearchView: View {
                 print("DEBUG: Error fetching sessions: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func getMonthAbbreviation(_ month: Int) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        return dateFormatter.shortMonthSymbols[month - 1]
     }
 }
 

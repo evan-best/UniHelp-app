@@ -16,7 +16,7 @@ class StudySessionViewModel: ObservableObject {
     private let ref = Database.database().reference().child("study_sessions")
     
     init() {
-        self.studySession = StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"])
+        self.studySession = StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"], creator: "Jimmy John", location: "Memorial University of Newfoundland, St. John's, NL A1C 5S7")
     }
     
     func createSession() async throws {
@@ -35,7 +35,9 @@ class StudySessionViewModel: ObservableObject {
             "caption": session.caption,
             "date": session.date,
             "time": session.time,
-            "members": session.members
+            "members": session.members,
+            "creator": session.creator,
+            "location": session.location
         ] as [String : Any]
         let session_update = ["\(key)": loc_session]
         ref.updateChildValues(session_update) { error, _ in
@@ -46,7 +48,7 @@ class StudySessionViewModel: ObservableObject {
             }
         }
     }
-
+    
     
     func fetchSession(sessionID: UUID) async throws -> StudySession? {
         let snapshot = try await ref.child(sessionID.uuidString).getData() // Fetch data for the specific session
@@ -60,16 +62,18 @@ class StudySessionViewModel: ObservableObject {
               let caption = sessionData["caption"] as? String,
               let date = sessionData["date"] as? String,
               let time = sessionData["time"] as? String,
-              let members = sessionData["members"] as? [String] else {
+              let members = sessionData["members"] as? [String],
+              let creator = sessionData["creator"] as? String,
+              let location = sessionData["location"] as? String else {
             print("DEBUG: Invalid session data for session with ID \(sessionID)")
             return nil
         }
         
         // Create and return the session object
-        return StudySession(id: sessionID, title: title, caption: caption, date: date, time: time, members: members)
+        return StudySession(id: sessionID, title: title, caption: caption, date: date, time: time, members: members, creator: creator, location: location)
     }
-
-
+    
+    
     
     func fetchAllSessions() async throws -> [StudySession]? {
         let snapshot = try await ref.getData()
@@ -84,9 +88,11 @@ class StudySessionViewModel: ObservableObject {
                let caption = sessionData["caption"] as? String,
                let date = sessionData["date"] as? String,
                let time = sessionData["time"] as? String,
-               let members = sessionData["members"] as? [String] {
+               let members = sessionData["members"] as? [String],
+               let creator = sessionData["creator"] as? String,
+               let location = sessionData["location"] as? String {
                 let id = UUID(uuidString: key)!
-                let session = StudySession(id: id, title: title, caption: caption, date: date, time: time, members: members)
+                let session = StudySession(id: id, title: title, caption: caption, date: date, time: time, members: members, creator: creator, location: location)
                 sessions.append(session)
             }
         }
@@ -99,9 +105,8 @@ class StudySessionViewModel: ObservableObject {
             // Session not found
             return nil
         }
-        
         // Return the members of the fetched session
         return fetchedSession.members
     }
-
+    
 }

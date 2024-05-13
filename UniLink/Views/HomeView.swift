@@ -26,9 +26,7 @@ struct HomeView: View {
                 }
             }
         }
-        .onAppear {
-            fetchSessions()
-        }
+        .task { fetchSessions() }
         .background(
             Circle()
                 .fill(Color(.systemPurple))
@@ -72,15 +70,14 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal, 20)
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(sessions, id: \.id) { session in
-                    if session.members.contains(viewModel.currentUser?.fullname) {
-                        VStack (spacing: 10) {
-                            HCard(session: session)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .padding(10)
-                        }
+                ForEach(sessions.filter { $0.members.contains(viewModel.currentUser?.fullname) }) { session in
+                    VStack (spacing: 10) {
+                        HCard(session: session)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(10)
                     }
                 }
+                
             }
         }
     }

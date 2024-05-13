@@ -13,6 +13,14 @@ struct VCardDetails: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var studySessionViewModel: StudySessionViewModel
     @Binding var session: StudySession?
+    
+    // DateFormatter to parse and format the date
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
     var body: some View {
         Button {
             withAnimation {
@@ -31,7 +39,7 @@ struct VCardDetails: View {
                         .padding(5)
                 )
         }
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Text(session!.title)
                     .customFont(.title2)
@@ -41,13 +49,20 @@ struct VCardDetails: View {
                 Spacer()
                 
                 VStack {
-                    // Extract day
-                    Text(session!.date.components(separatedBy: " ")[1])
-                        .foregroundColor(.white).customFont(.headline)
-                    // Extract month
-                    Text(session!.date.components(separatedBy: " ")[0])
-                        .foregroundColor(.white)
-                        .customFont(.headline)
+                    // Parse and format the date
+                    if let date = session?.date {
+                        let parsedDate = dateFormatter.date(from: date)!
+                        let month = Calendar.current.component(.month, from: parsedDate)
+                        let day = Calendar.current.component(.day, from: parsedDate)
+                        
+                        Text("\(day)")
+                            .foregroundColor(.white)
+                            .customFont(.headline)
+                        
+                        Text(getMonthAbbreviation(month))
+                            .foregroundColor(.white)
+                            .customFont(.headline)
+                    }
                 }
                 .padding(.horizontal,10)
                 .padding(.vertical, 6)
@@ -59,7 +74,7 @@ struct VCardDetails: View {
             
             Text(session!.caption)
                 .customFont(.subheadline)
-                .opacity(0.7)
+                .opacity(0.8)
                 .padding(.bottom, 10)
             HStack {
                 // TODO: Display initials of attendees (max: 3)
@@ -71,11 +86,14 @@ struct VCardDetails: View {
             .padding(.vertical, 14)
             HStack {
                 Image(systemName: "clock")
-                    .opacity(0.8)
                 Text(session!.time)
-                    .customFont(.subheadline)
-                    .opacity(0.8)
+                    .customFont(.subheadline2)
             }
+            
+            Text("Created by: \(session!.creator)")
+                .customFont(.subheadline)
+                .opacity(0.7)
+            
             Spacer()
             
             HStack (spacing: 160){
@@ -92,7 +110,6 @@ struct VCardDetails: View {
                     if !session!.members.contains(viewModel.currentUser?.fullname) {
                         session!.members.append(viewModel.currentUser?.fullname)
                         studySessionViewModel.saveSession(session: session!)
-                        print(session!.members)
                     } else {
                         print("The member \(viewModel.currentUser?.fullname ?? "") is already a member of this study session.")
                     }
@@ -119,10 +136,16 @@ struct VCardDetails: View {
         .frame(height: 580)
         .padding([.top, .horizontal], 10)
     }
+    
+    func getMonthAbbreviation(_ month: Int) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        return dateFormatter.shortMonthSymbols[month - 1]
+    }
 }
 
 
 #Preview {
-    VCardDetails(showDetails: .constant(true), session: .constant(StudySession(id: UUID(), title: "Title", caption: "caption", date: "Mar 21", time: "12:00pm - 2:00pm ", members: ["Jimmy John"])))
+    VCardDetails(showDetails: .constant(true), session: .constant(StudySession(id: UUID(), title: "Title", caption: "caption", date: "2024-05-21", time: "12:00pm - 2:00pm ", members: ["jimjohn@gmail.com"], creator: "Jimmy John", location: "Memorial University of Newfoundland, St. John's, NL A1C 5S7")))
         .environmentObject(StudySessionViewModel())
 }

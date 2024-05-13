@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		241EDA122BEFDF9500BEAF67 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241EDA112BEFDF9500BEAF67 /* LocationService.swift */; };
+		241EDA182BF2341C00BEAF67 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241EDA172BF2341C00BEAF67 /* AddView.swift */; };
 		24203B2D2BAE195E00BF6EE2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 24203B2C2BAE195E00BF6EE2 /* GoogleSignIn */; };
 		24203B2F2BAE195E00BF6EE2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24203B2E2BAE195E00BF6EE2 /* GoogleSignInSwift */; };
 		24447A452BC251B800247171 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24447A442BC251B800247171 /* SearchView.swift */; };
@@ -39,12 +41,13 @@
 		24B62D692B980D3B0026FDB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62D682B980D3B0026FDB5 /* ContentView.swift */; };
 		24B62D6B2B980D3D0026FDB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */; };
 		24B62D6E2B980D3D0026FDB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */; };
-		24D791292BDAADC900021ABF /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D791282BDAADC900021ABF /* AddView.swift */; };
 		24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFE2E2BA60540001F3386 /* HomeView.swift */; };
 		24DDFE342BA60761001F3386 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFE332BA60761001F3386 /* TabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		241EDA112BEFDF9500BEAF67 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		241EDA172BF2341C00BEAF67 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		24447A442BC251B800247171 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		244890652BE9452700D206E4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		24572D5D2B9C208100BADCBE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -71,7 +74,6 @@
 		24B62D682B980D3B0026FDB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24B62D6A2B980D3D0026FDB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24B62D6D2B980D3D0026FDB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		24D791282BDAADC900021ABF /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		24DDFE2E2BA60540001F3386 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		24DDFE332BA60761001F3386 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,7 +189,7 @@
 				24DDFE2E2BA60540001F3386 /* HomeView.swift */,
 				24572D682B9C386800BADCBE /* ProfileView.swift */,
 				24447A442BC251B800247171 /* SearchView.swift */,
-				24D791282BDAADC900021ABF /* AddView.swift */,
+				241EDA172BF2341C00BEAF67 /* AddView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				24B4C4DD2BAA08D900BDD082 /* StudySessionViewModel.swift */,
+				241EDA112BEFDF9500BEAF67 /* LocationService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,6 +347,8 @@
 				2467E3A92BA62ADE003629D6 /* VCardView.swift in Sources */,
 				24B4C4DE2BAA08D900BDD082 /* StudySessionViewModel.swift in Sources */,
 				244890662BE9452700D206E4 /* LoadingView.swift in Sources */,
+				241EDA182BF2341C00BEAF67 /* AddView.swift in Sources */,
+				241EDA122BEFDF9500BEAF67 /* LocationService.swift in Sources */,
 				24B62D692B980D3B0026FDB5 /* ContentView.swift in Sources */,
 				24B4C4DB2BA8FF5F00BDD082 /* VCardDetailsView.swift in Sources */,
 				24572D652B9C228D00BADCBE /* LoginView.swift in Sources */,
@@ -351,7 +356,6 @@
 				24DDFE2F2BA60540001F3386 /* HomeView.swift in Sources */,
 				24572D6D2B9C3C0800BADCBE /* User.swift in Sources */,
 				2467E3B72BA63FE8003629D6 /* HCardView.swift in Sources */,
-				24D791292BDAADC900021ABF /* AddView.swift in Sources */,
 				2467E3A72BA6293D003629D6 /* StudySession.swift in Sources */,
 				24572D692B9C386800BADCBE /* ProfileView.swift in Sources */,
 				24572D672B9C284E00BADCBE /* RegistrationView.swift in Sources */,
